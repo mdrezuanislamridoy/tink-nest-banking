@@ -26,7 +26,6 @@ export class TinkService {
       headers: { Authorization: `Bearer ${accessToken}` },
     });
     if (!res.ok) throw new Error(`Failed to fetch transactions: ${res.status}`);
-    console.log(res.json());
 
     return res.json();
   }

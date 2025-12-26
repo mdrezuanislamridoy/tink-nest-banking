@@ -23,9 +23,9 @@ interface Transaction {
   };
 }
 
-interface TransactionData {
-  transactions: Transaction[];
-}
+// interface TransactionData {
+//   transactions: Transaction[];
+// }
 
 @Controller()
 export class CallbackController {
@@ -50,7 +50,9 @@ export class CallbackController {
       const accessToken = tokenData.access_token;
 
       // 2️⃣ Fetch transactions
-      (await this.tinkService.getTransactions(accessToken)) as TransactionData;
+      // const trxData = (await this.tinkService.getTransactions(
+      //   accessToken,
+      // )) as TransactionData;
 
       // 3️⃣ Print to server console
       console.log('===== TINK TRANSACTIONS =====');
