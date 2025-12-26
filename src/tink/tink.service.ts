@@ -25,9 +25,9 @@ export class TinkService {
     const res = await fetch(`${this.apiUrl}/data/v2/transactions`, {
       headers: { Authorization: `Bearer ${accessToken}` },
     });
-    console.log({ res });
-
     if (!res.ok) throw new Error(`Failed to fetch transactions: ${res.status}`);
+    console.log(res.json());
+
     return res.json();
   }
 }

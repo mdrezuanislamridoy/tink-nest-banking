@@ -50,22 +50,20 @@ export class CallbackController {
       const accessToken = tokenData.access_token;
 
       // 2️⃣ Fetch transactions
-      const trxData = (await this.tinkService.getTransactions(
-        accessToken,
-      )) as TransactionData;
+      (await this.tinkService.getTransactions(accessToken)) as TransactionData;
 
       // 3️⃣ Print to server console
       console.log('===== TINK TRANSACTIONS =====');
       console.log('CredentialsId:', credentialsId);
       console.log('Access Token:', accessToken);
-      trxData.transactions.forEach((trx, idx) => {
-        const amount =
-          trx.amount.value.unscaledValue / 10 ** trx.amount.value.scale;
-        console.log(
-          `${idx + 1}. ${trx.dates.booked} - ${trx.descriptions.display} - ${amount} ${trx.amount.currencyCode}`,
-        );
-      });
-      console.log('==============================');
+      // trxData.transactions.forEach((trx, idx) => {
+      //   const amount =
+      //     trx.amount.value.unscaledValue / 10 ** trx.amount.value.scale;
+      //   console.log(
+      //     `${idx + 1}. ${trx.dates.booked} - ${trx.descriptions.display} - ${amount} ${trx.amount.currencyCode}`,
+      //   );
+      // });
+      // console.log('==============================');
 
       // 4️⃣ Optional: redirect to a simple page
       res.send('Transactions printed in server console!');
